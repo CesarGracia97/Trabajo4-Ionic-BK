@@ -1,0 +1,387 @@
+openapi: 3.0.3
+info:
+  title: API contactos
+  description: swcecwes
+  version: 1.0.11
+servers:
+- url: /rest/contactos-usuario-api/v1.0/
+tags:
+- name: Sistema
+- name: Crear
+- name: Modificar
+- name: Lectura
+paths:
+  /post/iniciar_sesion:
+    post:
+      tags:
+      - Sistema
+      operationId: iniciar_sesion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_IniciarSesion"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.sistema_controller
+    x-openapi-router-controller: swagger_server.controllers.sistema_controller
+  /post/recuperar_correo:
+    post:
+      tags:
+      - Sistema
+      operationId: recuperar_contrasena
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_RecuperarClave"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.sistema_controller
+    x-openapi-router-controller: swagger_server.controllers.sistema_controller
+  /post/create/usuarios:
+    post:
+      tags:
+      - Crear
+      operationId: post_createusuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_CrearUsuario"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.crear_controller
+  /post/create/contactos:
+    post:
+      tags:
+      - Crear
+      operationId: post_createcontacto
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_CrearContacto"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.crear_controller
+  /put/modify/usuarios:
+    post:
+      tags:
+      - Modificar
+      operationId: put_usuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_ModificarUsuario"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.modificar_controller
+  /put/modify/contacto:
+    post:
+      tags:
+      - Modificar
+      operationId: put_contacto
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_ModificarContacto"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.modificar_controller
+  /put/modify/bloquear_usuario:
+    post:
+      tags:
+      - Modificar
+      operationId: put_bloqusuario
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_BloquearUsuario"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.modificar_controller
+  /put/modify/bloquear_contacto:
+    post:
+      tags:
+      - Modificar
+      operationId: put_bloqcontact
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_BloquearContacto"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.modificar_controller
+  /get/queries/listar_usuarios:
+    post:
+      tags:
+      - Lectura
+      description: Endpoint de Lectura de Datos
+      operationId: get_read_usuarios
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_ListaUsuarios"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.lectura_controller
+  /get/queries/listar_contactos:
+    post:
+      tags:
+      - Lectura
+      operationId: get_read_contactos
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_ListaContactos"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.lectura_controller
+components:
+  schemas:
+    Request_IniciarSesion:
+      required:
+      - contrasena
+      - correo
+      properties:
+        contrasena:
+          type: string
+        correo:
+          type: string
+    Request_CrearUsuario:
+      required:
+      - cedula
+      - contacto
+      - contrasena
+      - correo
+      - nombre
+      properties:
+        contrasena:
+          type: string
+        correo:
+          type: string
+        name:
+          type: string
+        cedula:
+          type: string
+        contacto:
+          type: string
+    Request_CrearContacto:
+      required:
+      - CEDULA
+      - CORREO
+      - NOMBRE
+      - TELEFONO
+      - USUARIO_ID
+      properties:
+        USUARIO_ID:
+          type: number
+        NOMBRE:
+          type: string
+        TELEFONO:
+          type: string
+        CORREO:
+          type: string
+        CEDULA:
+          type: string
+    Request_ModificarUsuario:
+      required:
+      - contacto
+      - id
+      - nombre
+      properties:
+        id:
+          type: number
+        nombre:
+          type: string
+        contacto:
+          type: string
+    Request_ModificarContacto:
+      required:
+      - CORREO
+      - ID
+      - NOMBRE
+      - TELEFONO
+      properties:
+        ID:
+          type: number
+        NOMBRE:
+          type: string
+        TELEFONO:
+          type: string
+        CORREO:
+          type: string
+    Request_BloquearUsuario:
+      required:
+      - ID
+      properties:
+        ID:
+          type: number
+    Request_BloquearContacto:
+      required:
+      - ID
+      properties:
+        ID:
+          type: number
+    Request_ListaContactos:
+      required:
+      - ID
+      properties:
+        ID:
+          type: number
+    Request_ListaUsuarios:
+      required:
+      - peticion
+      properties:
+        peticion:
+          type: string
+    Request_RecuperarClave:
+      required:
+      - correo
+      properties:
+        correo:
+          type: string
+    Response:
+      type: object
+      properties:
+        status:
+          type: integer
+          example: 400
+          enum:
+          - 200
+          - 400
+        mesage:
+          type: string
+          example: El archivo fue cargado satisfactoreamente u ocurrio un problema
+            dentro de su proceso
+        internalTransactionId:
+          type: string
+          example: 03c33780-88cf-46cf-ba22-925e4d5be471
+        externalTransactionId:
+          type: string
+          example: 82fb166d-c273-4840-9008-c895cf9de255
+      description: Modelo de respuesta tanto Satisfactorio como Fallido
+      example:
+        mesage: El archivo fue cargado satisfactoreamente u ocurrio un problema dentro
+          de su proceso
+        internalTransactionId: 03c33780-88cf-46cf-ba22-925e4d5be471
+        externalTransactionId: 82fb166d-c273-4840-9008-c895cf9de255
+        status: 400
+
