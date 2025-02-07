@@ -14,7 +14,7 @@ class RequestCrearUsuario(Model):
 
     Do not edit the class manually.
     """
-    def __init__(self, contrasena: str=None, correo: str=None, name: str=None, cedula: str=None, contacto: str=None):  # noqa: E501
+    def __init__(self, contrasena: str=None, correo: str=None, nombre: str=None, cedula: str=None, contacto: str=None):  # noqa: E501
         """RequestCrearUsuario - a model defined in Swagger
 
         :param contrasena: The contrasena of this RequestCrearUsuario.  # noqa: E501
@@ -31,7 +31,7 @@ class RequestCrearUsuario(Model):
         self.swagger_types = {
             'contrasena': str,
             'correo': str,
-            'name': str,
+            'nombre': str,
             'cedula': str,
             'contacto': str
         }
@@ -39,13 +39,13 @@ class RequestCrearUsuario(Model):
         self.attribute_map = {
             'contrasena': 'contrasena',
             'correo': 'correo',
-            'name': 'name',
+            'nombre': 'nombre',
             'cedula': 'cedula',
             'contacto': 'contacto'
         }
         self._contrasena = contrasena
         self._correo = correo
-        self._name = name
+        self._nombre = nombre
         self._cedula = cedula
         self._contacto = contacto
 
@@ -107,17 +107,17 @@ class RequestCrearUsuario(Model):
         self._correo = correo
 
     @property
-    def name(self) -> str:
+    def nombre(self) -> str:
         """Gets the name of this RequestCrearUsuario.
 
 
         :return: The name of this RequestCrearUsuario.
         :rtype: str
         """
-        return self._name
+        return self._nombre
 
-    @name.setter
-    def name(self, name: str):
+    @nombre.setter
+    def nombre(self, nombre: str):
         """Sets the name of this RequestCrearUsuario.
 
 
@@ -125,7 +125,7 @@ class RequestCrearUsuario(Model):
         :type name: str
         """
 
-        self._name = name
+        self._nombre = nombre
 
     @property
     def cedula(self) -> str:

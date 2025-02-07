@@ -20,10 +20,10 @@ REQUIRES = [
 setup(
     name=NAME,
     version=VERSION,
-    description="API contactos",
+    description="Modulo-Automatic-Contratos-api",
     author_email="",
     url="",
-    keywords=["Swagger", "API contactos"],
+    keywords=["Swagger", "Modulo-Automatic-Contratos-api"],
     install_requires=REQUIRES,
     packages=find_packages(),
     package_data={'': ['swagger/swagger.yaml']},
