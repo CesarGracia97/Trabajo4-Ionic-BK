@@ -11,11 +11,35 @@ tags:
 - name: Modificar
 - name: Lectura
 paths:
-  /post/iniciar_sesion:
+  /post/usuario:
     post:
       tags:
       - Sistema
       operationId: iniciar_sesion
+      requestBody:
+        content:
+          application/json:
+            schema:
+              $ref: "#/components/schemas/Request_IniciarSesion"
+      responses:
+        "200":
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+        "400":
+          description: Error operation
+          content:
+            application/json:
+              schema:
+                $ref: "#/components/schemas/Response"
+      x-openapi-router-controller: swagger_server.controllers.sistema_controller
+  /post/iniciar_sesion:
+    post:
+      tags:
+      - Lectura
+      operationId: read_user
       requestBody:
         content:
           application/json:
@@ -358,6 +382,12 @@ components:
       properties:
         correo:
           type: string
+    Request_Usuario:
+      required:
+      - id
+      properties:
+        id:
+          type: number
     Response:
       type: object
       properties:

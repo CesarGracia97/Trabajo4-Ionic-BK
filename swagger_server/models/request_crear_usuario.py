@@ -21,8 +21,8 @@ class RequestCrearUsuario(Model):
         :type contrasena: str
         :param correo: The correo of this RequestCrearUsuario.  # noqa: E501
         :type correo: str
-        :param name: The name of this RequestCrearUsuario.  # noqa: E501
-        :type name: str
+        :param nombre: The nombre of this RequestCrearUsuario.  # noqa: E501
+        :type nombre: str
         :param cedula: The cedula of this RequestCrearUsuario.  # noqa: E501
         :type cedula: str
         :param contacto: The contacto of this RequestCrearUsuario.  # noqa: E501
@@ -108,22 +108,24 @@ class RequestCrearUsuario(Model):
 
     @property
     def nombre(self) -> str:
-        """Gets the name of this RequestCrearUsuario.
+        """Gets the nombre of this RequestCrearUsuario.
 
 
-        :return: The name of this RequestCrearUsuario.
+        :return: The nombre of this RequestCrearUsuario.
         :rtype: str
         """
         return self._nombre
 
     @nombre.setter
     def nombre(self, nombre: str):
-        """Sets the name of this RequestCrearUsuario.
+        """Sets the nombre of this RequestCrearUsuario.
 
 
-        :param name: The name of this RequestCrearUsuario.
-        :type name: str
+        :param nombre: The nombre of this RequestCrearUsuario.
+        :type nombre: str
         """
+        if nombre is None:
+            raise ValueError("Invalid value for `nombre`, must not be `None`")  # noqa: E501
 
         self._nombre = nombre
 

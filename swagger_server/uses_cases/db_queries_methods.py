@@ -7,13 +7,39 @@ from email.mime.text import MIMEText
 from swagger_server.utils.resource.mysql_configuration import MySQL_Configuration
 
 class DB_Queries_Methods:
+
+    @staticmethod
+    def query_usuarios(idUsuario):
+        response = {}
+        try:
+            db_config = MySQL_Configuration()
+            query = """SELECT ID, CORREO, NOMBRE, CEDULA, CONTACTO FROM USUARIO WHERE ID = %s"""
+            db_config.connect()
+            result = db_config.fetch_results(query, (idUsuario,))
+            db_config.disconnect()
+
+            if result:
+                response['ID'] = result[0]
+                response['CORREO'] = result[1]
+                response['NOMBRE'] = result[2]
+                response['CEDULA'] = result[3]
+                response['CONTACTO'] = result[4]
+                response['status'] = 200
+            else:
+                response['status'] = 400
+                response['message'] = "error en la consulta"
+        except Exception as e:
+            response['status'] = 500
+            response['message'] = f"Error desde el servidor: {str(e)}"
+        return response
+
     @staticmethod
     def query_iniciar_sesion(correo, contrasena):
         """"""
         response = {}
         try:
             db_config = MySQL_Configuration()
-            query = """SELECT CORREO, CONTRASENA, NOMBRE, CEDULA, CONTACTO, ID FROM USUARIO WHERE CORREO = %s"""
+            query = """SELECT CORREO, CONTRASENA, ID FROM USUARIO WHERE CORREO = %s"""
             db_config.connect()
             result = db_config.fetch_results(query, (correo,))
             db_config.disconnect()
@@ -24,13 +50,7 @@ class DB_Queries_Methods:
                 if db_password == contrasena:
                     response['status'] = 200
                     response['message'] = "Inicio de sesión exitoso"
-                    response['usuario'] = {
-                        "id": user_data[5],
-                        "correo": user_data[0],
-                        "nombre": user_data[2],
-                        "cedula": user_data[3],
-                        "contacto": user_data[4]
-                    }
+                    response['id'] = user_data[1]
                 else:
                     response['status'] = 400
                     response['message'] = "Credenciales incorrectas"

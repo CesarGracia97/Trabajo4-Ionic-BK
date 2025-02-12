@@ -13,4 +13,5 @@ from swagger_server.models.request_lista_usuarios import RequestListaUsuarios
 from swagger_server.models.request_modificar_contacto import RequestModificarContacto
 from swagger_server.models.request_modificar_usuario import RequestModificarUsuario
 from swagger_server.models.request_recuperar_clave import RequestRecuperarClave
+from swagger_server.models.request_usuario import RequestUsuario
 from swagger_server.models.response import Response
