@@ -37,7 +37,7 @@ class DB_Update_Method:
         response = {}
         try:
             db_config = MySQL_Configuration()
-            query = """ UPDATE USUARIO SET NOMBRE = %s, CORREO = %s, TELEFONO = %s WHERE ID = %s"""
+            query = """ UPDATE CONTACTO SET NOMBRE = %s, CORREO = %s, TELEFONO = %s WHERE ID = %s"""
             params = (NOMBRE, CORREO, TELEFONO, ID)
             db_config.connect()
             result = db_config.execute_query(query, params)

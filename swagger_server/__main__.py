@@ -9,7 +9,7 @@ def create_app():
     app = connexion.App(__name__, specification_dir='./swagger/')
     app.app.json_encoder = encoder.JSONEncoder
     CORS(app.app)  # <--- Activa CORS en la aplicación Flask
-    app.add_api('swagger.yaml', arguments={'title': 'API '}, pythonic_params=True,
+    app.add_api('swagger.yaml', arguments={'title': 'APIsswsw '}, pythonic_params=True,
                 resolver=MethodViewResolver("swagger_server.controllers"))
     return app
 
